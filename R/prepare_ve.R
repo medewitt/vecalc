@@ -13,10 +13,12 @@ prepare_ve_data <- function(form, data, method = "cem"){
 
 	form <- as.formula(form)
 
-	matched_sample <- matchit(form,
+	data.table::setDT(data)
+
+	matched_sample <- MatchIt::matchit(form,
 														data = data,method = "cem")
 
-	matched_data <- match.data(matched_sample)
+	matched_data <- MatchIt::match.data(matched_sample)
 
 
 	(model_dat <- matched_data[,.(infected = sum(infected*weights),

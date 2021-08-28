@@ -2,3 +2,5 @@
 
 export(fit_ve)
 export(prepare_ve_data)
+importFrom(stats,as.formula)
+importFrom(stats,weights)

@@ -5,6 +5,7 @@
 #' @param ve_data an object of class vedata
 #' @param stan_opts a list, any additional parameters to pass to
 #'     Stan.
+#' @importFrom stats as.formula weights
 #' @export
 #'
 fit_ve <- function(ve_data, stan_opts = list()){

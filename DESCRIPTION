@@ -15,7 +15,10 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     assertthat,
+    cli,
+    data.table,
     MatchIt,
+    rappdirs,
     staninside
 Depends: 
     R (>= 2.10)
