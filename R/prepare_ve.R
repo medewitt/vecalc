@@ -21,7 +21,7 @@ prepare_ve_data <- function(form, data, method = "cem"){
 	matched_data <- MatchIt::match.data(matched_sample)
 
 
-	(model_dat <- matched_data[,.(infected = sum(infected*weights),
+	(model_dat <- matched_data[,list(infected = sum(infected*weights),
 																total = sum(weights)), by = "vaccinated"])
 
 	model_dat <- list(
