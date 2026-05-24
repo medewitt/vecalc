@@ -14,7 +14,7 @@ race <- sample(x = c("Asian","Black", "Latinx","White"),size = n,
 
 age <- sample(12:100, size = n, replace = TRUE)
 
-vaccine_propensity <rnorm(n, --1.2+age * .02  - as.numeric(factor(race))*.01 + as.numeric(as.factor(sex))*.01)
+vaccine_propensity <- rnorm(n, -1.2 + age * .02  - as.numeric(factor(race))*.01 + as.numeric(as.factor(sex))*.01)
 
 vaccinated <- ifelse(arm::invlogit(vaccine_propensity)>.5,1,0)
 

@@ -16,7 +16,7 @@ prepare_ve_data <- function(form, data, method = "cem"){
 	data.table::setDT(data)
 
 	matched_sample <- MatchIt::matchit(form,
-														data = data,method = "cem")
+														data = data, method = method)
 
 	matched_data <- MatchIt::match.data(matched_sample)
 
