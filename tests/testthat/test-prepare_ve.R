@@ -31,6 +31,19 @@ test_that("model_dat carries the Stan inputs in the expected shape", {
   expect_equal(md$a, c(0.7, 1))
 })
 
+test_that("a user-specified prior is passed through", {
+  out <- prepare_ve_data(vaccinated ~ age + race + sex,
+                         data = make_sample(), a = c(2, 3))
+  expect_equal(out$model_dat$a, c(2, 3))
+})
+
+test_that("an invalid prior is rejected", {
+  expect_error(prepare_ve_data(vaccinated ~ age + race + sex,
+                               data = make_sample(), a = 1))
+  expect_error(prepare_ve_data(vaccinated ~ age + race + sex,
+                               data = make_sample(), a = c(-1, 1)))
+})
+
 test_that("a character formula is accepted", {
   out <- prepare_ve_data("vaccinated ~ age + race + sex", data = make_sample())
   expect_s3_class(out, "vedata")
