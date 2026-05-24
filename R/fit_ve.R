@@ -1,6 +1,6 @@
-#' Fit Vaccine Efficiency
+#' Fit Vaccine Efficacy
 #'
-#' A function for fitting vaccine efficiency
+#' A function for fitting vaccine efficacy
 #'
 #' @param ve_data an object of class vedata
 #' @param stan_opts a list, any additional parameters to pass to

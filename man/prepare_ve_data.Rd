@@ -16,5 +16,5 @@ used.}
 }
 \description{
 This function returns objects that be used for calculating
-Vaccine Efficiency
+Vaccine Efficacy
 }

@@ -1,7 +1,7 @@
 #' Prepare Data for Matching
 #'
 #' This function returns objects that be used for calculating
-#' Vaccine Efficiency
+#' Vaccine Efficacy
 #'
 #' @param form the formal to be used in the matching algorithm
 #' @param data a data.frame with the data objects to be used

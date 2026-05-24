@@ -1,5 +1,5 @@
 ## code to prepare `test_cohort` dataset goes here
-## Generate a Cohort that can be used for testing vaccine efficiency
+## Generate a Cohort that can be used for testing vaccine efficacy
 ##
 
 # Some Demographics
