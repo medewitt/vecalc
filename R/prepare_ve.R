@@ -25,16 +25,19 @@ prepare_ve_data <- function(form, data, method = "cem", a = c(0.7, 1)){
 														data = data, method = method)
 
 	matched_data <- MatchIt::match.data(matched_sample)
+	data.table::setDT(matched_data)
 
+	control   <- matched_data[vaccinated == 0]
+	treatment <- matched_data[vaccinated == 1]
 
-	(model_dat <- matched_data[,list(infected = sum(infected*weights),
-																total = sum(weights)), by = "vaccinated"])
+	c_arm <- weighted_binom(control$infected, control$weights)
+	t_arm <- weighted_binom(treatment$infected, treatment$weights)
 
 	model_dat <- list(
-		r_c = round(model_dat[vaccinated==0]$infected),
-		r_t = round(model_dat[vaccinated==1]$infected),
-		n_c = round(model_dat[vaccinated==0]$total),
-		n_t = round(model_dat[vaccinated==1]$total),
+		r_c = c_arm$r,
+		r_t = t_arm$r,
+		n_c = c_arm$n,
+		n_t = t_arm$n,
 		a = a
 	)
 

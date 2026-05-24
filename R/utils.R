@@ -6,6 +6,19 @@ this_pkg <- function() {
 	"vecalc"
 }
 
+# Summarise a matched arm for the binomial likelihood while accounting for the
+# matching weights. Treating the summed weights as the binomial denominator
+# overstates precision when weights are unequal, so the sample size is deflated
+# to Kish's effective sample size, n_eff = (sum w)^2 / sum(w^2). The weighted
+# infection proportion is then scaled to that effective size. When all weights
+# are equal this reduces to the raw counts.
+weighted_binom <- function(infected, weights) {
+	w_sum <- sum(weights)
+	n_eff <- w_sum^2 / sum(weights^2)
+	p_hat <- sum(infected * weights) / w_sum
+	list(r = round(p_hat * n_eff), n = round(n_eff))
+}
+
 cmd_stan_defaults <- list(
 	seed = NULL,
 	refresh = NULL,
