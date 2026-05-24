@@ -4,17 +4,22 @@
 \alias{prepare_ve_data}
 \title{Prepare Data for Matching}
 \usage{
-prepare_ve_data(form, data, method = "cem")
+prepare_ve_data(form, data, method = "cem", a = c(0.7, 1))
 }
 \arguments{
-\item{form}{the formal to be used in the matching algorithm}
+\item{form}{the formula to be used in the matching algorithm}
 
 \item{data}{a data.frame with the data objects to be used}
 
 \item{method}{a string indicating the matching algorithm to be
 used.}
+
+\item{a}{a length-2 numeric vector of beta shape parameters for the
+prior on the relative-risk scale of vaccine efficacy. Defaults to
+\code{c(0.7, 1)}, a weakly informative prior that mildly favors an
+effective vaccine.}
 }
 \description{
 This function returns objects that be used for calculating
-Vaccine Efficiency
+Vaccine Efficacy
 }

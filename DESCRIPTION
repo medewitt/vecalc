@@ -1,5 +1,5 @@
 Package: vecalc
-Title: What the Package Does (One Line, Title Case)
+Title: Bayesian Vaccine Efficacy Estimation from Matched Cohorts
 Version: 0.0.1.9000
 Authors@R: 
     person(given = "Michael",
@@ -7,7 +7,11 @@ Authors@R:
            role = c("aut", "cre"),
            email = "me.dewitt.jr@gmail.com",
            comment = c(ORCID = "0000-0001-8940-1967"))
-Description: What the package does (one paragraph).
+Description: Estimates vaccine efficacy from observational cohort data.
+    Vaccinated and unvaccinated groups are balanced on baseline covariates
+    using matching methods from the 'MatchIt' package, and the resulting
+    event counts are passed to a Bayesian binomial model fit with 'CmdStan'
+    (via 'cmdstanr') to produce a posterior distribution for vaccine efficacy.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fit_ve.R
 \name{fit_ve}
 \alias{fit_ve}
-\title{Fit Vaccine Efficiency}
+\title{Fit Vaccine Efficacy}
 \usage{
 fit_ve(ve_data, stan_opts = list())
 }
@@ -13,5 +13,5 @@ fit_ve(ve_data, stan_opts = list())
 Stan.}
 }
 \description{
-A function for fitting vaccine efficiency
+A function for fitting vaccine efficacy
 }
